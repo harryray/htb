@@ -1,0 +1,17 @@
+{
+  "name": "pouch",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "scss": "node-sass --output-style compressed -o ./ assets/scss/styles.scss",
+    "watch": "onchange \"assets/scss\" -- npm run scss"
+  },
+  "devDependencies": {
+    "node-sass": "^4.14.1"
+  },
+  "dependencies": {
+    "onchange": "^7.1.0"
+  },
+  "author": "Harry Ray",
+  "license": "ISC"
+}
