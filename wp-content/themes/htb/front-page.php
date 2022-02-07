@@ -11,6 +11,7 @@ get_header();
 					
 
 					<div class="speech-bubble">
+						<p class="visible-text-container"></p>
 						<p class="statement">...</p>
 						<p class="statement">...</p>
 						<p class="statement">omg hi!</p>
@@ -18,6 +19,8 @@ get_header();
 						<p class="statement">I didn't expect you to just barge in here, honestly...</p>
 						<p class="statement">But, no bother! Welcome!</p>
 						<p class="question">How are you?</p>
+					</div>
+					<div class="answer-container">
 						<p class="answer">Good! You?</p><!-- Make the conversation awkward. "Good to hear! I'm good thank you. Um..."-->
 						<p class="answer">I think I'm lost...</p><!-- if this is clicked, get trippy. "You are not lost, my child." -->
 						<p class="answer">Who are you?</p><!-- Dunno, do something here. Something funny. "I'm Harry! Harry the Bastard, of course! It's literally in the URL." -->
