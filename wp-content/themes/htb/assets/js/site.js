@@ -1,3 +1,5 @@
+const global_speed_mod = 50;
+
 (function ($, root, undefined) {
 	
 	$(function () {
@@ -57,10 +59,38 @@
 						.addTo(controller);
 			});
 
+/*
+******************************************************************************************************************************************************
+******************************************************************************************************************************************************
+*/
+
 			function writeToContainer(container, speed, entry) {
 				setTimeout(function(){
 					container.innerText = entry;
 				}, speed)
+			}
+
+			function prepWriteToContainer(s, c, strings_i, visibleTextContainer){
+
+				console.log(strings_i)
+
+				let string = s.innerText;
+				let strlen = string.length;
+				let strlen_i = 0;
+
+				const s_interval = setInterval(function(){
+				
+					let str_to_write = string.substr(0, strings_i);
+
+					writeToContainer(visibleTextContainer, global_speed_mod, str_to_write);
+
+					strings_i++;
+					
+					if(strings_i > strlen) {
+						clearInterval(s_interval);
+					}
+
+				}, global_speed_mod);
 			}
 
 			// Get speech bubbles, hide all text within them.
@@ -74,7 +104,6 @@
 				const s = e.children;
 				const c = s.length;
 				const visibleTextContainer = e.children[0];
-				const global_speed_mod = 666;
 				let strings_i = 1;
 
 				// get all strings. count all strings. 
@@ -82,26 +111,7 @@
 				// if active string not fully visible, "Enter" or "Down" skips to end.
 				// if active string is at end, hide active string, iterate number, run 
 				// function again to handle new string.
-				for (strings_i=1; strings_i < c; strings_i++) {
-
-					console.log(s[strings_i]);
-
-					setTimeout(function(){
-						console.log(strings_i);
-						console.log(s[strings_i]);
-						let string = s[strings_i].innerText;
-						let strlen = string.length;
-						let strlen_i = 0;
-						let str_to_write = string.substr(0, 0);
-
-						for(strlen_i=0; strlen_i<strlen; strlen_i++) {
-							str_to_write = string.substr(0, strlen_i);
-							writeToContainer(visibleTextContainer, global_speed_mod, str_to_write);
-						}
-
-					}, global_speed_mod);
-
-				}
+				prepWriteToContainer(s[1], c, strings_i, visibleTextContainer);
 			}
 
 			$('.speech-bubble').each(handleSpeechBubble);
