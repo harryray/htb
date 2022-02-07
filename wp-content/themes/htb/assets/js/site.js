@@ -1,4 +1,4 @@
-const global_speed_mod = 50;
+const global_speed_mod = 250;
 
 (function ($, root, undefined) {
 	
@@ -111,7 +111,14 @@ const global_speed_mod = 50;
 				// if active string not fully visible, "Enter" or "Down" skips to end.
 				// if active string is at end, hide active string, iterate number, run 
 				// function again to handle new string.
-				prepWriteToContainer(s[1], c, strings_i, visibleTextContainer);
+
+				$(document).keyup(function(event) {
+					console.log('KEY PRESSED');
+    				if (event.which === 13) {
+						prepWriteToContainer(s[strings_i], c, strings_i, visibleTextContainer);
+						strings_i++;
+					}
+				});
 			}
 
 			$('.speech-bubble').each(handleSpeechBubble);
