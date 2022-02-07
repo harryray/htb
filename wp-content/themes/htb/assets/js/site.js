@@ -1,4 +1,4 @@
-const global_speed_mod = 250;
+const global_speed_mod = 500;
 
 (function ($, root, undefined) {
 	
@@ -72,25 +72,23 @@ const global_speed_mod = 250;
 
 			function prepWriteToContainer(s, c, strings_i, visibleTextContainer){
 
-				console.log(strings_i)
-
 				let string = s.innerText;
 				let strlen = string.length;
 				let strlen_i = 0;
 
 				const s_interval = setInterval(function(){
 				
-					let str_to_write = string.substr(0, strings_i);
+					let str_to_write = string.substr(0, strlen_i);
 
 					writeToContainer(visibleTextContainer, global_speed_mod, str_to_write);
 
-					strings_i++;
+					strlen_i++;
 					
-					if(strings_i > strlen) {
+					if(strlen_i > strlen) {
 						clearInterval(s_interval);
 					}
 
-				}, global_speed_mod);
+				}, global_speed_mod / (strlen));
 			}
 
 			// Get speech bubbles, hide all text within them.
@@ -111,10 +109,12 @@ const global_speed_mod = 250;
 				// if active string not fully visible, "Enter" or "Down" skips to end.
 				// if active string is at end, hide active string, iterate number, run 
 				// function again to handle new string.
+				prepWriteToContainer(s[strings_i], c, strings_i, visibleTextContainer);
+				strings_i++;
 
 				$(document).keyup(function(event) {
-					console.log('KEY PRESSED');
     				if (event.which === 13) {
+    					visibleTextContainer.innerText = '';
 						prepWriteToContainer(s[strings_i], c, strings_i, visibleTextContainer);
 						strings_i++;
 					}
