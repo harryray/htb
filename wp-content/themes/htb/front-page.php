@@ -7,7 +7,7 @@ get_header();
 
 			<section class="homepage__section homepage__section--one">
 				
-				<div>
+				<div class="speech-section-wrap">
 					
 
 					<div class="speech-bubble">
@@ -21,9 +21,9 @@ get_header();
 						<p class="question">How are you?</p>
 					</div>
 					<div class="answer-container">
-						<p class="answer">Good! You?</p><!-- Make the conversation awkward. "Good to hear! I'm good thank you. Um..."-->
-						<p class="answer">I think I'm lost...</p><!-- if this is clicked, get trippy. "You are not lost, my child." -->
-						<p class="answer">Who are you?</p><!-- Dunno, do something here. Something funny. "I'm Harry! Harry the Bastard, of course! It's literally in the URL." -->
+						<p class="answer">1. Good! You?</p><!-- Make the conversation awkward. "Good to hear! I'm good thank you. Um..."-->
+						<p class="answer">2. I think I'm lost...</p><!-- if this is clicked, get trippy. "You are not lost, my child." -->
+						<p class="answer">3. Who are you?</p><!-- Dunno, do something here. Something funny. "I'm Harry! Harry the Bastard, of course! It's literally in the URL." -->
 					</div>
 
 				</div>

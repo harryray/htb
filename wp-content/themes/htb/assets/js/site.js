@@ -112,13 +112,26 @@ const global_speed_mod = 500;
 				prepWriteToContainer(s[strings_i], c, strings_i, visibleTextContainer);
 				strings_i++;
 
-				$(document).keyup(function(event) {
-    				if (event.which === 13) {
-    					visibleTextContainer.innerText = '';
-						prepWriteToContainer(s[strings_i], c, strings_i, visibleTextContainer);
-						strings_i++;
-					}
-				});
+
+				if(strings_i < c) {
+					$(document).keyup(function(event) {
+	    				if (event.which === 13) {
+	    					if(strings_i < c) {
+		    					visibleTextContainer.innerText = '';
+								prepWriteToContainer(s[strings_i], c, strings_i, visibleTextContainer);
+								strings_i++;
+							} else if(strings_i = c) {
+								if($(e).next('.answer-container')) {
+									const answers = $(e).next('.answer-container')[0];
+									$(answers).fadeIn(333);
+									$(e).addClass('answers-visible');
+								} else {
+
+								}
+							}
+						}
+					});
+				}
 			}
 
 			$('.speech-bubble').each(handleSpeechBubble);
