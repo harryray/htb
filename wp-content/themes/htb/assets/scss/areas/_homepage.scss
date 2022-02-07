@@ -1,36 +1,15 @@
 .homepage {
 
-	&__section--one {
+	&__section {
 		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 60px 30px;
 
-		> div:nth-of-type(2) {
-			width: 100%;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			padding: 60px;
-		}
-	}
-
-	&__tray {
-		background: #c60000;
-		color: white;
-		padding: 30px;
-		position: relative;
-		display: inline-block;
-		left: 0;
-
-		h1 {
-			margin: 0;
-			font-size: 600px;
-			font-family: 'Bebas Neue', sans-serif;
-		    margin: -75px 0 -150px 0;
-		}
-
-		p {
-			margin: 0;
-			font-size: 64px;
-			font-family: 'Vujahday Script', cursive;
+		&--one {
+			height: 100vh;
+			background: #000;
+			color: white;
 		}
 	}
 
