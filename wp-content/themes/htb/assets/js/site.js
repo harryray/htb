@@ -104,6 +104,8 @@ const global_speed_mod = 500;
 				const visibleTextContainer = e.children[0];
 				let strings_i = 1;
 
+				$(e).addClass('visible')
+
 				// get all strings. count all strings. 
 				// detect active string by number. 
 				// if active string not fully visible, "Enter" or "Down" skips to end.
@@ -134,7 +136,7 @@ const global_speed_mod = 500;
 				}
 			}
 
-			$('.speech-bubble').each(handleSpeechBubble);
+			$('.speech-bubble#initial').each(handleSpeechBubble);
 
 		});
 		

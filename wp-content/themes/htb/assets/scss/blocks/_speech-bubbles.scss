@@ -11,6 +11,11 @@
 	position: relative;
 	min-height: 86px;
     transition: all 300ms ease-in-out;
+    display: none;
+
+    &.visible {
+    	display: block;
+    }
 
     &.answers-visible {
     	border-radius: 33px 33px 0 0;
